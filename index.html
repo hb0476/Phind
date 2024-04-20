@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Arena</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .sports-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .sport {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .sport img {
+            width: 100%;
+            height: auto;
+        }
+        .sport-details {
+            margin-top: 10px;
+        }
+        .sport-details h3 {
+            margin: 0;
+        }
+        .sport-details p {
+            margin: 0;
+        }
+        .booking-form {
+            margin-top: 20px;
+        }
+        .booking-form input, .booking-form select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .booking-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .booking-form button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .receipt {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Sports Arena</h1>
+        <div class="sports-list">
+            <!-- Example Sport -->
+            <div class="sport">
+                <img src="sport-image.jpg" alt="Sport Image">
+                <div class="sport-details">
+                    <h3>Sport Name</h3>
+                    <p>Description of the sport.</p>
+                </div>
+            </div>
+            <!-- Add more sports here -->
+        </div>
+        <div class="booking-form">
+            <h2>Book a Slot</h2>
+            <select id="sport">
+                <option value="">Select Sport</option>
+                <!-- Add sport options here -->
+            </select>
+            <select id="timeSlot">
+                <option value="">Select Time Slot</option>
+                <!-- Add time slot options here -->
+            </select>
+            <button id="bookButton" disabled>Book</button>
+        </div>
+        <div class="receipt" id="receipt">
+            <h2>Receipt</h2>
+            <p>Sport: <span id="receiptSport"></span></p>
+            <p>Time Slot: <span id="receiptTimeSlot"></span></p>
+            <p>Total Cost: <span id="receiptCost"></span></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookButton').addEventListener('click', function() {
+            // Example logic to calculate total cost and display receipt
+            var sport = document.getElementById('sport').value;
+            var timeSlot = document.getElementById('timeSlot').value;
+            var totalCost = 0; // Calculate based on sport and time slot
+
+            document.getElementById('receiptSport').textContent = sport;
+            document.getElementById('receiptTimeSlot').textContent = timeSlot;
+            document.getElementById('receiptCost').textContent = totalCost;
+
+            document.getElementById('receipt').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
